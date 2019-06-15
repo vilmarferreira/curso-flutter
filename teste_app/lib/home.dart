@@ -23,11 +23,11 @@ List<Curso> parsecursos(String responseBody) {
   return parsed.map<Curso>((json) => Curso.fromJson(json)).toList();
 }
 
-class HomePage extends StatelessWidget {
+class HomePageScreen extends StatelessWidget {
   final String title;
   Pessoa pessoa;
 
-  HomePage({Key key, this.title, this.pessoa}) : super(key: key);
+  HomePageScreen({Key key, this.title, this.pessoa}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

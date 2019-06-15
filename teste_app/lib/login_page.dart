@@ -18,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
     pessoa.nome = nomeController.text;
 
     Navigator.of(context).push(
-        MaterialPageRoute(builder: (context)=>HomePage(title: "DASH",pessoa: pessoa))
+        MaterialPageRoute(builder: (context)=>HomePageScreen(title: "DASH",pessoa: pessoa))
     );
   }
   @override
@@ -49,6 +49,7 @@ class _LoginPageState extends State<LoginPage> {
             TextField(
               autofocus: true,
               keyboardType: TextInputType.emailAddress,
+
               controller: nomeController,
               onChanged: (val) => nome = val,
               decoration: InputDecoration(

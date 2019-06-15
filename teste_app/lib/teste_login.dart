@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:teste_app/home.dart';
+import 'package:teste_app/pessoa.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -75,6 +77,17 @@ class HomePageState extends State<HomePage>
   }
 
   Widget _buildLoginComponents() {
+    TextEditingController nomeController = new TextEditingController();
+    String nome;
+
+    void goToListView() async {
+      Pessoa pessoa = new Pessoa();
+      pessoa.nome = nomeController.text;
+
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (context)=>HomePageScreen(title: "DASH",pessoa: pessoa))
+      );
+    }
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -86,6 +99,8 @@ class HomePageState extends State<HomePage>
               children: <Widget>[
                 TextField(
                   style: TextStyle(color: Colors.white, height: 0.5),
+                  controller: nomeController,
+                  onChanged: (val) => nome = val,
                   decoration: InputDecoration(
                       prefixIcon: Icon(Icons.email),
                       hintText: 'Email',
@@ -107,22 +122,8 @@ class HomePageState extends State<HomePage>
                                 Radius.circular(32)))),
                   ),
                 ),
-                Container(
-                  width: 200,
-                  height: 40,
-                  margin: EdgeInsets.only(top: 32),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(50))
-                  ),
-                  child: Center(
-                    child: Text(
-                      'LOGIN',
-                      style: TextStyle(color: Color(0XFF2a3ed7),
-                          fontWeight: FontWeight.bold
-                      ),
-                    ),
-                  ),
+                RaisedButton(
+                  onPressed: goToListView,
                 )
               ],
             ),
@@ -156,6 +157,7 @@ class HomePageState extends State<HomePage>
           ),
           TextField(
             style: TextStyle(color: Colors.black, height: 0.5),
+            keyboardType: TextInputType.text,
             decoration: InputDecoration(
                 prefixIcon: Icon(
                   Icons.email,
@@ -164,25 +166,7 @@ class HomePageState extends State<HomePage>
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(32)))),
           ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 16, top: 16),
-            child: TextField(
-              style: TextStyle(color: Colors.black, height: 0.5),
-              decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.vpn_key),
-                  hintText: 'Senha',
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(32)))),
-            ),
-          ),
-          TextField(
-            style: TextStyle(color: Colors.black, height: 0.5),
-            decoration: InputDecoration(
-                prefixIcon: Icon(Icons.vpn_key),
-                hintText: 'Confirmar Senha',
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(32)))),
-          ),
+
           Padding(
             padding: const EdgeInsets.only(top: 24),
             child: Container(
