@@ -6,6 +6,10 @@ import 'package:teste_app/pessoa.dart';
 import 'package:teste_app/post.dart';
 import 'curso.dart';
 class FormDadosPessoais extends StatefulWidget {
+  final Pessoa pessoa;
+
+  FormDadosPessoais({this.pessoa});
+
   @override
   _FormDadosPessoaisState createState() => _FormDadosPessoaisState();
 }
@@ -28,6 +32,8 @@ class _FormDadosPessoaisState extends State<FormDadosPessoais> {
   TextEditingController cpfController = new TextEditingController();
   TextEditingController rgController = new TextEditingController();
   TextEditingController sexoController = new TextEditingController();
+
+  String nome;
 
 
   @override
@@ -53,6 +59,7 @@ class _FormDadosPessoaisState extends State<FormDadosPessoais> {
                       padding: const EdgeInsets.all(8.0),
                       child: new TextField(
                         controller: nomeController,
+                        onChanged: (val) => nome = val,
                         decoration: new InputDecoration(labelText: "Nome"),
                       ),
                     ),
@@ -80,6 +87,7 @@ class _FormDadosPessoaisState extends State<FormDadosPessoais> {
                       ),
                     ),
                     new RaisedButton(
+                      color: Colors.blue,
                         onPressed: () async {
                           Pessoa newPost = new Pessoa(id: 123,
                               nome: nomeController.text, cpf: cpfController.text, rg: rgController.text, sexo: sexoController.text);
