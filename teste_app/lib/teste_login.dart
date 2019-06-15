@@ -40,11 +40,12 @@ class HomePageState extends State<HomePage>
 
   Widget _buildLoginWidgets() {
     return Container(
+
       padding: EdgeInsets.only(bottom: 62, top: 16),
       width: MediaQuery.of(context).size.width,
       height: loginSize.value,
       decoration: BoxDecoration(
-          color: Color(0XFF2a3ed7),
+          color: Colors.tealAccent,
           borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(190),
               bottomRight: Radius.circular(190))),
@@ -62,6 +63,7 @@ class HomePageState extends State<HomePage>
               });
             },
             child: Container(
+
               child: Text(
                 'LOGIN'.toUpperCase(),
                 style: TextStyle(
@@ -97,13 +99,18 @@ class HomePageState extends State<HomePage>
             padding: const EdgeInsets.only(left: 42, right: 42),
             child: Column(
               children: <Widget>[
+                SizedBox(
+                  width: 128,
+                  height: 128,
+                  child: Image.asset("assets/logo.png"),
+                ),
                 TextField(
                   style: TextStyle(color: Colors.white, height: 0.5),
                   controller: nomeController,
                   onChanged: (val) => nome = val,
                   decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.email),
-                      hintText: 'Email',
+                      prefixIcon: Icon(Icons.navigate_next),
+                      hintText: 'Nome',
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(32))
                       )
@@ -124,6 +131,8 @@ class HomePageState extends State<HomePage>
                 ),
                 RaisedButton(
                   onPressed: goToListView,
+                  child: Text("Entrar"),
+                  color: Colors.blue,
                 )
               ],
             ),
@@ -152,7 +161,7 @@ class HomePageState extends State<HomePage>
               style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
-                  color: Color(0XFF2a3ed7)),
+                  color: Colors.amber)
             ),
           ),
           TextField(
@@ -174,7 +183,7 @@ class HomePageState extends State<HomePage>
               height: 40,
               margin: EdgeInsets.only(top: 32),
               decoration: BoxDecoration(
-                  color: Color(0XFF2a3ed7),
+                  color: Colors.purple,
                   borderRadius: BorderRadius.all(Radius.circular(50))
               ),
               child: Center(
