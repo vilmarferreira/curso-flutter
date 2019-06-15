@@ -2,15 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:teste_app/form.dart';
 
+import 'curso_nota.dart';
+
 
 
 class DetailPageScreen1 extends StatefulWidget {
+  CursoMedia aluno ;
+  DetailPageScreen1({  this.aluno}) : super();
   @override
-  _DetailPageScreen1State createState() => _DetailPageScreen1State();
+  _DetailPageScreen1State createState() => _DetailPageScreen1State(aluno: aluno);
 }
 
 class _DetailPageScreen1State extends State<DetailPageScreen1> {
 
+  CursoMedia aluno ;
+  _DetailPageScreen1State({  this.aluno}) : super();
 
 
   @override
@@ -36,7 +42,7 @@ class _DetailPageScreen1State extends State<DetailPageScreen1> {
     final welcome = Padding(
       padding: EdgeInsets.all(8.0),
       child: Text(
-        'Título do Curso',
+        aluno.curso,
         style: TextStyle(fontSize: 28.0, color: Colors.white),
       ),
     );
@@ -44,7 +50,7 @@ class _DetailPageScreen1State extends State<DetailPageScreen1> {
     final lorem = Padding(
       padding: EdgeInsets.all(8.0),
       child: Text(
-        'Descrição breve do curso',
+        aluno.descricao,
         style: TextStyle(fontSize: 16.0, color: Colors.white),
       ),
     );

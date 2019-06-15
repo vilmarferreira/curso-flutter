@@ -4,17 +4,17 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'package:teste_app/detail_page.dart';
 import 'package:teste_app/pessoa.dart';
 import 'curso.dart';
 import 'curso_nota.dart';
 import 'detail.dart';
+import 'detail_page.dart';
 
 
 
 Future<List<CursoMedia>> fetchcursos(http.Client client,String pessoa) async {
   final response =
-      await client.get('https://hackathon-uni.herokuapp.com/api/carregar/cursos/?nome=$pessoa');
+  await client.get('https://hackathon-uni.herokuapp.com/api/carregar/cursos/?nome=$pessoa');
 
   return compute(parsecursos, response.body);
 }
@@ -28,7 +28,6 @@ List<CursoMedia> parsecursos(String responseBody) {
 
 class DashBoard extends StatefulWidget {
   Pessoa pessoa;
-  CursoMedia curso;
   DashBoard({Key key,  this.pessoa}) : super(key: key);
   @override
   _DashBoardState createState() => _DashBoardState(pessoa: pessoa);
@@ -119,17 +118,17 @@ class _DashBoardState extends State<DashBoard> {
     return Column(
       children: <Widget>[
         Text(
-          item.curso.toUpperCase(),
+          'Curso: '+item.curso.toUpperCase(),
           style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 20,),
         Text(
-          item.mediaMinima.toString(),
+          'Media minima: '+item.mediaMinima.toString(),
           style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 20,),
         Text(
-          item.suaMedia.toString(),
+          'Sua media é:' +item.suaMedia.toString(),
           style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
         ),
 
@@ -142,7 +141,7 @@ class _DashBoardState extends State<DashBoard> {
   Widget _buildItemCard(CursoMedia item) {
     return GestureDetector(
         onTap: () => _onTapItem(context, item),
-       child: Container(
+        child: Container(
           width: 130,
           height: 145,
           padding: EdgeInsets.fromLTRB(16, 16, 16, 16),
@@ -198,13 +197,13 @@ class _DashBoardState extends State<DashBoard> {
 
           return snapshot.hasData
               ? Container(
-                  margin: EdgeInsets.only(top: 16),
-                  child: Stack(
-                    children: <Widget>[
-                      _buildCardsList(snapshot.data),
-                    ],
-                  ),
-                )
+            margin: EdgeInsets.only(top: 16),
+            child: Stack(
+              children: <Widget>[
+                _buildCardsList(snapshot.data),
+              ],
+            ),
+          )
               : Center(child: CircularProgressIndicator());
         },
       ),
@@ -216,7 +215,7 @@ void _onTapItem(BuildContext context, CursoMedia curso) {
 //      .of(context)
 //      .showSnackBar(new SnackBar(content: new Text(curso.id.toString() + ' - ' + curso.nome)));
   Navigator.of(context).push(
-      MaterialPageRoute(builder: (context)=>DetailPageScreen1())
+      MaterialPageRoute(builder: (context)=>DetailPageScreen1(aluno: curso,))
   );
 }
 

@@ -87,10 +87,13 @@ class HomePageState extends State<HomePage>
     void goToListView() async {
       Pessoa pessoa = new Pessoa();
       pessoa.nome = nomeController.text;
+      if (nomeController.text != ""){
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context)=>DashBoard(pessoa: pessoa,))
+        );
 
-      Navigator.of(context).push(
-          MaterialPageRoute(builder: (context)=>DashBoard(pessoa: pessoa,))
-      );
+      }
+
     }
     return Column(
       mainAxisSize: MainAxisSize.min,
