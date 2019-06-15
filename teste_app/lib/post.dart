@@ -14,4 +14,14 @@ class Post {
       body: json['body'] as String,
     );
   }
+
+  Map toMap() {
+    var map = new Map<String, dynamic>();
+    map["userId"] = userId;
+    map["title"] = title;
+    map["body"] = body;
+
+    return map;
+  }
 }
+
