@@ -9,6 +9,7 @@ class MyApp extends StatelessWidget {
     final appTitle = 'Score Escolar';
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: appTitle,
       home: HomePage(title: appTitle),
     );
