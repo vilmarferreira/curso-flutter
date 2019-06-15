@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:teste_app/home.dart';
 import 'package:teste_app/pessoa.dart';
 
+import 'dash_board.dart';
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -87,7 +89,7 @@ class HomePageState extends State<HomePage>
       pessoa.nome = nomeController.text;
 
       Navigator.of(context).push(
-          MaterialPageRoute(builder: (context)=>HomePageScreen(title: "DASH",pessoa: pessoa))
+          MaterialPageRoute(builder: (context)=>DashBoard(pessoa: pessoa,))
       );
     }
     return Column(

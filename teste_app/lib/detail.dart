@@ -19,7 +19,7 @@ class _DetailPageState extends State<DetailPage> {
     return Scaffold(
       appBar: AppBar(
         title: new Text("Informações"),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.grey[300],
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(

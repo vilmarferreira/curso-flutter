@@ -44,7 +44,7 @@ class _FormDadosPessoaisState extends State<FormDadosPessoais> {
     return Scaffold(
       appBar: AppBar(
         title: new Text("Formulário pessoal"),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.grey[300],
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -91,11 +91,11 @@ class _FormDadosPessoaisState extends State<FormDadosPessoais> {
                     ),
                     new RaisedButton(
                       color: Colors.blue,
+                        child: Text('Salvar'),
                         onPressed: () async {
                           Pessoa newPost = new Pessoa(id: 123,
                               nome: nomeController.text, cpf: cpfController.text, rg: rgController.text, sexo: sexoController.text);
                           Pessoa p = await createPost(CREATE_POST_URL,
-
                               body: newPost.toMap());
                           print(p.nome);
                       }
