@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:teste_app/listposts.dart';
 import 'package:teste_app/pessoa.dart';
 
+import 'home.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -16,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
     pessoa.nome = nomeController.text;
 
     Navigator.of(context).push(
-        MaterialPageRoute(builder: (context)=>ListViewcursos(pessoa: pessoa))
+        MaterialPageRoute(builder: (context)=>HomePage(title: "DASH",pessoa: pessoa))
     );
   }
   @override

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+import 'package:teste_app/pessoa.dart';
 import 'listposts.dart';
 import 'curso.dart';
 
@@ -24,12 +25,13 @@ List<Curso> parsecursos(String responseBody) {
 
 class HomePage extends StatelessWidget {
   final String title;
+  Pessoa pessoa;
 
-
-  HomePage({Key key, this.title}) : super(key: key);
+  HomePage({Key key, this.title, this.pessoa}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    print(pessoa.nome);
     return Scaffold(
       appBar: AppBar(
         title: Text(title),

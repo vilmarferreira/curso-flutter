@@ -36,14 +36,6 @@ class _FormDadosPessoaisState extends State<FormDadosPessoais> {
 
   String nome;
 
-  void goToListView() async {
-    Pessoa pessoa = new Pessoa();
-    pessoa.nome = nomeController.text;
-
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context)=>ListViewcursos(pessoa: pessoa))
-    );
-  }
 
 
 
