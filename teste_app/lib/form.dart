@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:teste_app/listposts.dart';
 import 'package:teste_app/pessoa.dart';
 import 'package:teste_app/post.dart';
 import 'curso.dart';
@@ -34,6 +35,16 @@ class _FormDadosPessoaisState extends State<FormDadosPessoais> {
   TextEditingController sexoController = new TextEditingController();
 
   String nome;
+
+  void goToListView() async {
+    Pessoa pessoa = new Pessoa();
+    pessoa.nome = nomeController.text;
+
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (context)=>ListViewcursos(pessoa: pessoa))
+    );
+  }
+
 
 
   @override

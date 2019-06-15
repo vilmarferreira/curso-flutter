@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:teste_app/detail.dart';
+import 'package:teste_app/pessoa.dart';
 import 'post.dart';
 import 'curso.dart';
 import 'dart:convert' show utf8;
 
 
 class ListViewcursos extends StatelessWidget {
+  Pessoa pessoa;
+
   final List<Curso> cursos;
 
-  ListViewcursos({Key key, this.cursos}) : super(key: key);
+  ListViewcursos({Key key, this.cursos, this.pessoa}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

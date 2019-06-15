@@ -1,6 +1,6 @@
 class Pessoa{
   final int id;
-  final String nome;
+  String nome;
   final String cpf;
   final String rg;
   final String sexo;
