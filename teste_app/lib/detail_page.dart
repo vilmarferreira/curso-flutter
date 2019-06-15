@@ -65,6 +65,10 @@ class _DetailPageScreen1State extends State<DetailPageScreen1> {
 
     return Scaffold(
       body: body,
+      appBar: AppBar(
+        title: new Text('Informações'),
+        centerTitle: true,
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: mostra_tela_form,
         child: Icon(Icons.arrow_forward),
