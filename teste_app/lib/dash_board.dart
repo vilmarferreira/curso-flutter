@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+import 'package:teste_app/detail_page.dart';
 import 'package:teste_app/pessoa.dart';
 import 'curso.dart';
 import 'curso_nota.dart';
@@ -27,6 +28,7 @@ List<CursoMedia> parsecursos(String responseBody) {
 
 class DashBoard extends StatefulWidget {
   Pessoa pessoa;
+  CursoMedia curso;
   DashBoard({Key key,  this.pessoa}) : super(key: key);
   @override
   _DashBoardState createState() => _DashBoardState(pessoa: pessoa);
@@ -214,7 +216,7 @@ void _onTapItem(BuildContext context, CursoMedia curso) {
 //      .of(context)
 //      .showSnackBar(new SnackBar(content: new Text(curso.id.toString() + ' - ' + curso.nome)));
   Navigator.of(context).push(
-      MaterialPageRoute(builder: (context)=>DetailPage())
+      MaterialPageRoute(builder: (context)=>DetailPageScreen1())
   );
 }
 

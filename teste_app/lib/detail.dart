@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:teste_app/curso.dart';
 import 'package:teste_app/form.dart';
 
 class DetailPage extends StatefulWidget {
   @override
   _DetailPageState createState() => _DetailPageState();
+  Curso curso;
+
+  DetailPage({Key key,  this.curso}) : super(key: key);
 }
 
 class _DetailPageState extends State<DetailPage> {
