@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste_app/detail.dart';
 import 'post.dart';
 import 'curso.dart';
 import 'dart:convert' show utf8;
@@ -61,5 +62,8 @@ class ListViewcursos extends StatelessWidget {
     Scaffold
         .of(context)
         .showSnackBar(new SnackBar(content: new Text(curso.id.toString() + ' - ' + curso.nome)));
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context)=>DetailPage())
+    );
   }
 }

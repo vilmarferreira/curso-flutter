@@ -8,6 +8,7 @@ import 'curso.dart';
 
 //import 'listcursos.dart';
 
+
 Future<List<Curso>> fetchcursos(http.Client client) async {
   final response = await client.get('https://hackathon-uni.herokuapp.com/api/curso/');
 
@@ -23,6 +24,7 @@ List<Curso> parsecursos(String responseBody) {
 
 class HomePage extends StatelessWidget {
   final String title;
+
 
   HomePage({Key key, this.title}) : super(key: key);
 
