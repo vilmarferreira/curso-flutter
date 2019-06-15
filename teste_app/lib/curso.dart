@@ -14,5 +14,13 @@ class Curso{
 
     );
   }
+  Map toMap() {
+    var map = new Map<String, dynamic>();
+
+    map["nome"] = nome;
+    map["descricao"] = descricao;
+
+    return map;
+  }
 
 }

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:teste_app/post.dart';
-
+import 'curso.dart';
 class FormDadosPessoais extends StatefulWidget {
   @override
   _FormDadosPessoaisState createState() => _FormDadosPessoaisState();
@@ -22,7 +22,7 @@ class _FormDadosPessoaisState extends State<FormDadosPessoais> {
     });
   }
 
-  static final CREATE_POST_URL = 'https://192.168.43.49:8000/api/aluno/';
+  static final CREATE_POST_URL = 'https://hackathon-uni.herokuapp.com/api/aluno/';
   TextEditingController titleControler = new TextEditingController();
   TextEditingController descricaoControler = new TextEditingController();
 
@@ -56,7 +56,7 @@ class _FormDadosPessoaisState extends State<FormDadosPessoais> {
                       padding: const EdgeInsets.all(8.0),
                       child: new TextField(
                         controller: descricaoControler,
-                        keyboardType: TextInputType.number,
+                        keyboardType: TextInputType.text,
                         decoration: new InputDecoration(labelText: "CPF"),
                       ),
                     ),
@@ -69,8 +69,8 @@ class _FormDadosPessoaisState extends State<FormDadosPessoais> {
 //                    ),
                     new RaisedButton(
                         onPressed: () async {
-                          Post newPost = new Post(
-                              title: titleControler.text, body: descricaoControler.text);
+                          Curso newPost = new Curso(id: 123,
+                              nome: titleControler.text, descricao: descricaoControler.text);
                           Post p = await createPost(CREATE_POST_URL,
 
                               body: newPost.toMap());
